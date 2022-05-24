@@ -1,0 +1,24 @@
+version: '3'
+networks:
+    korbojoy:
+        driver: bridge
+
+services:
+    app:
+        build:
+            context: ./apps
+            dockerfile: ./Dockerfile
+        image: app
+        ports:
+            - '3003:3000'
+        networks:
+            - 'korbojoy'
+    app1:
+        build:
+            context: ./apps1
+            dockerfile: ./Dockerfile
+        image: app1
+        ports:
+             - '3002:3000'
+        networks:
+            - 'korbojoy'
